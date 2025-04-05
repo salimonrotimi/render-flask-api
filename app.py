@@ -20,7 +20,6 @@ model = pk.load(open("trained_prediction_model.pkl", "rb"))
 @app.route("/predictapi", methods = ["POST"])
 def predictionapi():      
     data = request.get_json(force=True)
-    print(data.values)
     datalist = [int(x) for x in data.values()]
     pred_data = [np.array(datalist)]
     prediction = model.predict(pred_data)
