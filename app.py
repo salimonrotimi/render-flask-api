@@ -22,8 +22,7 @@ def predictionapi():
     data = request.get_json(force=True)
     datalist = [int(x) for x in data.values()]
     pred_data = [np.array(datalist)]
-    prediction = model.predict(pred_data)
-    
+    prediction = model.predict(pred_data)    
     output = round(prediction[0])
     return jsonify(output)
 
